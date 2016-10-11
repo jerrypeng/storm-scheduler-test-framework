@@ -168,7 +168,12 @@ public class DataSetPerformanceRunner extends MultithreadedStrategyPerformanceRu
             StormTopology stormTopology = (StormTopology) deserializeStormTopologyObject(file);
 
             if (this.topologyConfFiles.containsKey(id)) {
-                Map topologyConf = (Map) new JSONParser().parse((String) deserializeTopologyConfObject(this.topologyConfFiles.get(id)));
+                Map topologyConf = new HashMap();
+                //in case default confs are not included
+                topologyConf.putAll(this.defaultConfs);
+                topologyConf.putAll((Map) new JSONParser().parse((String) deserializeTopologyConfObject(this.topologyConfFiles.get(id))));
+
+
                 TopologyDetails topo = createTopologyDetailsObject(file.getName(), stormTopology, topologyConf);
                 topos.add(topo);
             } else {

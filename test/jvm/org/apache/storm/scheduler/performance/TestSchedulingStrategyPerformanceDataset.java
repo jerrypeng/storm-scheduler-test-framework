@@ -34,6 +34,7 @@ public class TestSchedulingStrategyPerformanceDataset {
 
     public Map getDefaultConfigs() {
         Map config = Utils.readStormConfig();
+        LOG.info("Config: {}", config);
         config.put(OptimalStrategyConfigs.TOPOLOGY_CONSTRAINTS_MAX_DEPTH_TRAVERSAL, MAX_TRAVERSAL_DEPTH);
         config.put(Config.TOPOLOGY_SUBMITTER_USER, TOPOLOGY_SUBMITTER);
         config.put(Config.TOPOLOGY_WORKERS, NUM_WORKERS);
