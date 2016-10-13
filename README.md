@@ -63,15 +63,11 @@ Examples of how to use the framework are the following (all under <project-root>
     * Provides an example of how you can use this framework to simulate schedulings of randomly generated topologies and clusters in a multithreaded manner
 3. TestSchedulingStrategyPerformanceSampleTopologies
     * Provides an example on how to use the core API to simulate schedulings of custom defined topologies
+    
+    
+Please note: Progress of simulations can be monitored in the surefire output file in <PROJECT_ROOT>/target/surefire-reports
 
+Example on how to run one of the tests:
 
-
-
-
-
-
-
-
-
-
-
+    mvn test -Dtest=TestConstraintSolver -DfailIfNoTests=false
+    
